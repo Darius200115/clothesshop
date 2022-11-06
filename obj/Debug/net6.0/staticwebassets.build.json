@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "Hash": "KdCdAamfV1Mw0WNEh0FeBiBdgTxYPoXivBW6gwFz3a0=",
+  "Source": "test-proj-843823",
+  "BasePath": "_content/test-proj-843823",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "test-proj-843823\\wwwroot",
+      "Source": "test-proj-843823",
+      "ContentRoot": "C:\\Users\\svenp\\source\\repos\\test-proj-843823\\wwwroot\\",
+      "BasePath": "_content/test-proj-843823",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\svenp\\source\\repos\\test-proj-843823\\wwwroot\\img\\nike-jacket-1.jpeg",
+      "SourceId": "test-proj-843823",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\svenp\\source\\repos\\test-proj-843823\\wwwroot\\",
+      "BasePath": "_content/test-proj-843823",
+      "RelativePath": "img/nike-jacket-1.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\nike-jacket-1.jpeg"
+    },
+    {
+      "Identity": "C:\\Users\\svenp\\source\\repos\\test-proj-843823\\wwwroot\\img\\nike-shoes-1.jpeg",
+      "SourceId": "test-proj-843823",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\svenp\\source\\repos\\test-proj-843823\\wwwroot\\",
+      "BasePath": "_content/test-proj-843823",
+      "RelativePath": "img/nike-shoes-1.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\nike-shoes-1.jpeg"
+    },
+    {
+      "Identity": "C:\\Users\\svenp\\source\\repos\\test-proj-843823\\wwwroot\\img\\puma-shoes-1.jpeg",
+      "SourceId": "test-proj-843823",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\svenp\\source\\repos\\test-proj-843823\\wwwroot\\",
+      "BasePath": "_content/test-proj-843823",
+      "RelativePath": "img/puma-shoes-1.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\puma-shoes-1.jpeg"
+    }
+  ]
+}
