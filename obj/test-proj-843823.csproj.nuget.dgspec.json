@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\svenp\\source\\repos\\test-proj-843823\\test-proj-843823.csproj": {}
+    "C:\\Users\\svenp\\source\\repos\\Darius200115\\clothesshop\\test-proj-843823.csproj": {}
   },
   "projects": {
-    "C:\\Users\\svenp\\source\\repos\\test-proj-843823\\test-proj-843823.csproj": {
+    "C:\\Users\\svenp\\source\\repos\\Darius200115\\clothesshop\\test-proj-843823.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\svenp\\source\\repos\\test-proj-843823\\test-proj-843823.csproj",
+        "projectUniqueName": "C:\\Users\\svenp\\source\\repos\\Darius200115\\clothesshop\\test-proj-843823.csproj",
         "projectName": "test-proj-843823",
-        "projectPath": "C:\\Users\\svenp\\source\\repos\\test-proj-843823\\test-proj-843823.csproj",
+        "projectPath": "C:\\Users\\svenp\\source\\repos\\Darius200115\\clothesshop\\test-proj-843823.csproj",
         "packagesPath": "C:\\Users\\svenp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\svenp\\source\\repos\\test-proj-843823\\obj\\",
+        "outputPath": "C:\\Users\\svenp\\source\\repos\\Darius200115\\clothesshop\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\svenp\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,19 +40,23 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[6.0.11, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[6.0.10, )"
+              "version": "[7.0.0, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[6.0.10, )"
+              "version": "[7.0.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.2.3, )"
+              "version": "[6.4.0, )"
             }
           },
           "imports": [

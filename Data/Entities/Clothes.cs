@@ -12,8 +12,8 @@ namespace test_proj_843823.Data.Entities
         public string CountryManufacturer  { get; set; }   
         public string Description { get; set; } = string.Empty;
         public string PictureUrl { get; set; }
-        public int Count    { get; set; }
-        public string DeliveryDate { get; set; }
+        public int Count { get; set; }
+        public DateTime DeliveryDate { get; set; }
 
 
     }

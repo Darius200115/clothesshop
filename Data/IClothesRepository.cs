@@ -1,4 +1,5 @@
 ﻿using test_proj_843823.Data.Entities;
+using test_proj_843823.ViewModels;
 
 namespace test_proj_843823.Data
 {
@@ -6,6 +7,9 @@ namespace test_proj_843823.Data
     {
         IEnumerable<Clothes> GetAllClothes();
         IEnumerable<Clothes> GetClothesByCategory(string category);
-        bool SaveChanges();
+        IEnumerable<Order> GetAllOrders();
+        Order GetOrderById(int id);
+        void AddEntity(object model);
+        bool SaveAll();
     }
 }
