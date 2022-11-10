@@ -44,7 +44,7 @@ namespace test_proj_843823.Data
         {
             return _ctx.Order
                .Include(p => p.Items)
-               .ThenInclude(p => p.Clothes)
+               .ThenInclude(o => o.Clothes)
                .Where(p => p.Id == id)
                .FirstOrDefault();
 

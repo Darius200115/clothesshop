@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using test_proj_843823.Data;
 using test_proj_843823.Data.Entities;
 using test_proj_843823.ViewModels;
@@ -10,10 +11,12 @@ namespace test_proj_843823.Controllers
     {
         private readonly IClothesRepository _clothesRepository;
         private readonly ILogger<OrdersController> _logger;
-        public OrdersController(ILogger<OrdersController> logger, IClothesRepository repository)
+        private readonly IMapper _mapper;
+        public OrdersController(ILogger<OrdersController> logger, IClothesRepository repository, IMapper mapper)
         {
             _clothesRepository = repository;
             _logger = logger;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -21,7 +24,7 @@ namespace test_proj_843823.Controllers
         {
             try
             {
-                return Ok(_clothesRepository.GetAllOrders());
+                return Ok(_mapper.Map<IEnumerable<Order>, IEnumerable<OrderViewModel>>(_clothesRepository.GetAllOrders()));
             }
             catch (Exception ex)
             {
@@ -38,7 +41,7 @@ namespace test_proj_843823.Controllers
             {
                 var orders = _clothesRepository.GetOrderById(id);
                 if (orders != null)
-                    return Ok(orders);
+                    return Ok(_mapper.Map<Order, OrderViewModel>(orders));
                 else return NotFound();
             }
             catch (Exception ex)
@@ -56,12 +59,7 @@ namespace test_proj_843823.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var newOrder = new Order()
-                    {
-                        OrderDate = model.OrderDate,
-                        OrderNumber = model.OrderNumber,
-                        Id = model.OrderId                   
-                    };
+                    var newOrder = _mapper.Map<OrderViewModel, Order>(model);
 
                     if (newOrder.OrderDate == DateTime.MinValue)
                     {
@@ -71,14 +69,7 @@ namespace test_proj_843823.Controllers
                     _clothesRepository.AddEntity(newOrder);
                     if (_clothesRepository.SaveAll())
                     {
-                        var vm = new OrderViewModel()
-                        {
-                            OrderId = newOrder.Id,
-                            OrderDate = newOrder.OrderDate,
-                            OrderNumber = newOrder.OrderNumber
-                        };
-
-                        return Created($"/api/orders/{vm.OrderId}", vm);
+                        return Created($"/api/orders/{newOrder.Id}", _mapper.Map<Order, OrderViewModel>(newOrder));
                     }
                 }
                 else

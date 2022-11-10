@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 using test_proj_843823.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +13,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ShopDbContext>();
 builder.Services.AddScoped<IClothesRepository, ClothesRepository>();
+builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
 var app = builder.Build();
 
