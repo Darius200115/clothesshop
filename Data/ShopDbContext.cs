@@ -1,9 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using test_proj_843823.Data.Entities;
 
-namespace test_proj_843823.Data
+namespace test_proj_843823.Data 
 {
-    public class ShopDbContext : DbContext
+    public class ShopDbContext : IdentityDbContext<ShopUser>
     {
         private readonly IConfiguration _configuration;
 
