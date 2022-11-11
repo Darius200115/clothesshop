@@ -13,8 +13,7 @@ namespace test_proj_843823.ViewModels
         [Required]
         public int ClothesId { get; set; }
         public string Brand { get; set; } = string.Empty;
-        public string Category { get; set; }
-        public string Size { get; set; } = string.Empty;
+        public string Category { get; set; }       
         public decimal Price { get; set; }      
         public int Count { get; set; }     
     }

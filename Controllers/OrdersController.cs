@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using test_proj_843823.Data;
 using test_proj_843823.Data.Entities;
@@ -7,6 +9,7 @@ using test_proj_843823.ViewModels;
 namespace test_proj_843823.Controllers
 {
     [Route("api/[Controller]")]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class OrdersController : ControllerBase
     {
         private readonly IClothesRepository _clothesRepository;
@@ -20,11 +23,12 @@ namespace test_proj_843823.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<Order>> GetAllOrders()
+        public ActionResult<IEnumerable<Order>> GetAllOrders(bool includeItems = true)
         {
             try
             {
-                return Ok(_mapper.Map<IEnumerable<Order>, IEnumerable<OrderViewModel>>(_clothesRepository.GetAllOrders()));
+                var result = _clothesRepository.GetAllOrders(includeItems);
+                return Ok(_mapper.Map<IEnumerable<Order>, IEnumerable<OrderViewModel>>(result));
             }
             catch (Exception ex)
             {

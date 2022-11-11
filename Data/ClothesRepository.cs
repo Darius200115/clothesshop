@@ -26,12 +26,21 @@ namespace test_proj_843823.Data
             return _ctx.Clothes.Where(p => p.Category == category).ToList();
         }
 
-        public IEnumerable<Order> GetAllOrders()
+        public IEnumerable<Order> GetAllOrders(bool includeItems)
         {
-            return _ctx.Order
-                .Include(p=>p.Items)
-                .ThenInclude(p=>p.Clothes)
+            if (includeItems == true)
+            {
+                return _ctx.Order
+                .Include(p => p.Items)
+                .ThenInclude(p => p.Clothes)
                 .ToList();
+            }
+            else
+            {
+                return _ctx.Order
+                .ToList();
+            }
+            
         }
 
         
@@ -42,11 +51,7 @@ namespace test_proj_843823.Data
 
         public Order GetOrderById(int id)
         {
-            return _ctx.Order
-               .Include(p => p.Items)
-               .ThenInclude(o => o.Clothes)
-               .Where(p => p.Id == id)
-               .FirstOrDefault();
+            return _ctx.Order.Include(p => p.Items).ThenInclude(o => o.Clothes).Where(p => p.Id == id).FirstOrDefault();
 
         }
 

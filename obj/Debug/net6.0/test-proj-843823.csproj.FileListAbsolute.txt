@@ -150,3 +150,4 @@ C:\Users\svenp\source\repos\Darius200115\clothesshop\bin\Debug\net6.0\System.Tex
 C:\Users\svenp\source\repos\Darius200115\clothesshop\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
 C:\Users\svenp\source\repos\Darius200115\clothesshop\bin\Debug\net6.0\AutoMapper.dll
 C:\Users\svenp\source\repos\Darius200115\clothesshop\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\svenp\source\repos\Darius200115\clothesshop\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

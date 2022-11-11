@@ -7,7 +7,7 @@ namespace test_proj_843823.Data
     {
         IEnumerable<Clothes> GetAllClothes();
         IEnumerable<Clothes> GetClothesByCategory(string category);
-        IEnumerable<Order> GetAllOrders();
+        IEnumerable<Order> GetAllOrders(bool includeItems);
         Order GetOrderById(int id);
         void AddEntity(object model);
         bool SaveAll();

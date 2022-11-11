@@ -14,6 +14,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ShopDbContext>();
 builder.Services.AddScoped<IClothesRepository, ClothesRepository>();
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+builder.Services.AddAuthentication().AddCookie().AddJwtBearer();
 
 var app = builder.Build();
 
@@ -25,6 +26,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 
