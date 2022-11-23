@@ -151,3 +151,9 @@ C:\Users\svenp\source\repos\Darius200115\clothesshop\bin\Debug\net6.0\runtimes\b
 C:\Users\svenp\source\repos\Darius200115\clothesshop\bin\Debug\net6.0\AutoMapper.dll
 C:\Users\svenp\source\repos\Darius200115\clothesshop\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\svenp\source\repos\Darius200115\clothesshop\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\svenp\source\repos\Darius200115\clothesshop\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\svenp\source\repos\Darius200115\clothesshop\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\svenp\source\repos\Darius200115\clothesshop\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\svenp\source\repos\Darius200115\clothesshop\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\svenp\source\repos\Darius200115\clothesshop\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\svenp\source\repos\Darius200115\clothesshop\bin\Debug\net6.0\Data\datalist.json

@@ -29,9 +29,22 @@ namespace test_proj_843823.Controllers
 
                 _logger.LogError($"Failed to get products: {ex}" );
                 return BadRequest("Failed to get products");
+            }       
+        }
+
+        [HttpGet("{category}")]
+        public ActionResult<IEnumerable<Clothes>> GetClothesByCategory(string category)
+        {
+            try
+            {
+                return Ok(_repos.GetClothesByCategory(category));
             }
-            
-            
+            catch (Exception ex)
+            {
+
+                _logger.LogError($"Failed to get clothes: {ex}");
+                return BadRequest("Failed to get clothes");
+            }
         }
     }
 }

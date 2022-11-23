@@ -11,5 +11,6 @@ namespace test_proj_843823.Data
         Order GetOrderById(int id);
         void AddEntity(object model);
         bool SaveAll();
+        IEnumerable<ShopUser> GetAllUsers();
     }
 }

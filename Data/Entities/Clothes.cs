@@ -15,6 +15,5 @@ namespace test_proj_843823.Data.Entities
         public int Count { get; set; }
         public DateTime DeliveryDate { get; set; }
 
-
     }
 }

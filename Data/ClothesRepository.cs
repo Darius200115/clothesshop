@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using test_proj_843823.Data.Entities;
 using test_proj_843823.ViewModels;
 
@@ -55,9 +56,17 @@ namespace test_proj_843823.Data
 
         }
 
+        public IEnumerable<ShopUser> GetAllUsers()
+        {
+            return _ctx.Users
+                .OrderBy(c=>c.Id)
+                .ToList();
+        }
+
         public void AddEntity(object model)
         {
             _ctx.Add(model);
         }
+
     }
 }

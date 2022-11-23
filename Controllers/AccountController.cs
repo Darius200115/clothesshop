@@ -1,34 +1,43 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.JsonWebTokens;
 using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Text;
 using test_proj_843823.Data;
 using test_proj_843823.Data.Entities;
 using test_proj_843823.ViewModels;
 
+
 namespace test_proj_843823.Controllers
 {
-    
-    public class AccountController : Controller
+    [Route("api/[Controller]")]
+    public class AccountController : ControllerBase
     {
         private readonly ILogger<AccountController> _logger;
         private readonly SignInManager<ShopUser> _signinmanager;
         private readonly UserManager<ShopUser> _userManager;
         private readonly IConfiguration _configuration;
+        private readonly IClothesRepository _clothesRepository;
+        private readonly IMapper _mapper;
 
-        public AccountController(ILogger<AccountController> logger, SignInManager<ShopUser> signinmanager, UserManager<ShopUser> userManager, IConfiguration config)
+        public AccountController(ILogger<AccountController> logger, SignInManager<ShopUser> signinmanager,
+            UserManager<ShopUser> userManager, IConfiguration config, IClothesRepository repos, IMapper mapper)
         {
+
             _logger = logger;
             _signinmanager = signinmanager;
             _userManager = userManager;
             _configuration = config;
+            _clothesRepository = repos;
+            _mapper = mapper;
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateToken([FromBody]LoginViewModel model)
+        public async Task<IActionResult> CreateToken([FromBody] ShopUserViewModel model)
         {
             if (ModelState.IsValid)       
             {
@@ -36,6 +45,7 @@ namespace test_proj_843823.Controllers
                 if (user!=null)
                 {
                     var result = await _signinmanager.CheckPasswordSignInAsync(user, model.Password, false);
+
                     if (result.Succeeded)
                     {
                         var claims = new[]
@@ -45,15 +55,41 @@ namespace test_proj_843823.Controllers
                             new Claim(JwtRegisteredClaimNames.UniqueName, user.UserName)
 
                         };
-                        
+                        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Tokens:Key"]));
+                        var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
+                        var token = new JwtSecurityToken(
+                            _configuration["Token:Issuer"],
+                            _configuration["Token:Audience"],
+                            claims,
+                            signingCredentials: creds,
+                            expires: DateTime.Now.AddMinutes(20));
+
+                        return Created("", new
+                        {
+                            token = new JwtSecurityTokenHandler().WriteToken(token),
+                            expiration = token.ValidTo
+                        });
                     }
                 }
-            }
-                
+            }          
 
             return BadRequest();
         }
-        
+ 
+        [HttpGet]
+        public ActionResult<IEnumerable<ShopUser>> GetAllUsers()
+        {
+            try
+            {
+                return Ok(_clothesRepository.GetAllUsers());
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Failed to get Users list: {ex}");
+                return BadRequest("Failed to get Users list");
+            }
+        }
+
     }
 }
