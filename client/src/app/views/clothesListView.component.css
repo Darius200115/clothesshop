@@ -1,0 +1,11 @@
+﻿.clothes-image{
+    border:1px #bbbbbb solid;
+    box-shadow: rgb(219, 25, 25);
+    margin: auto;
+}
+.clothes-items {
+    
+    border:1px #bcbcb6 solid;
+    margin: 4px 3px 4px 3px;
+    padding: 4px 3px 4px 3px;
+}
