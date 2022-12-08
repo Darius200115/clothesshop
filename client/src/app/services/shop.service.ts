@@ -12,10 +12,15 @@ export class Shop {
 
     }
 
-    public token = "";
     public clothes: Clothes[] = [];
-
     public order: Order = new Order();
+
+    public token = "";
+    public expiration = new Date();
+
+    get loginRequired():boolean{
+      return this.token.length === 0 || this.expiration > new Date();
+    }
 
     loadClothes(): Observable<void> {
         return this.http.get<[]>("/api/clothes")

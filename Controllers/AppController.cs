@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace test_proj_843823.Controllers
 {
@@ -8,6 +9,7 @@ namespace test_proj_843823.Controllers
         {
             return View();
         }
+        
         public IActionResult Shop()
         {
             return View();
