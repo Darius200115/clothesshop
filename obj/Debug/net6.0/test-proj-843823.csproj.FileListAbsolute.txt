@@ -157,3 +157,11 @@ C:\Users\svenp\source\repos\Darius200115\clothesshop\bin\Debug\net6.0\Microsoft.
 C:\Users\svenp\source\repos\Darius200115\clothesshop\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
 C:\Users\svenp\source\repos\Darius200115\clothesshop\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\svenp\source\repos\Darius200115\clothesshop\bin\Debug\net6.0\Data\datalist.json
+C:\Users\svenp\source\repos\Darius200115\clothesshop\bin\Debug\net6.0\client\angular.json
+C:\Users\svenp\source\repos\Darius200115\clothesshop\bin\Debug\net6.0\client\package-lock.json
+C:\Users\svenp\source\repos\Darius200115\clothesshop\bin\Debug\net6.0\client\package.json
+C:\Users\svenp\source\repos\Darius200115\clothesshop\bin\Debug\net6.0\client\tsconfig.app.json
+C:\Users\svenp\source\repos\Darius200115\clothesshop\bin\Debug\net6.0\client\tsconfig.json
+C:\Users\svenp\source\repos\Darius200115\clothesshop\obj\Debug\net6.0\test-proj-843823.RazorAssemblyInfo.cache
+C:\Users\svenp\source\repos\Darius200115\clothesshop\obj\Debug\net6.0\test-proj-843823.RazorAssemblyInfo.cs
+C:\Users\svenp\source\repos\Darius200115\clothesshop\bin\Debug\net6.0\libman.json

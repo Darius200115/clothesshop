@@ -59,11 +59,11 @@ namespace test_proj_843823.Controllers
                         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
                         var token = new JwtSecurityToken(
-                            _configuration["Token:Issuer"],
-                            _configuration["Token:Audience"],
+                            _configuration["Tokens:Issuer"],
+                            _configuration["Tokens:Audience"],
                             claims,
                             signingCredentials: creds,
-                            expires: DateTime.Now.AddMinutes(20));
+                            expires: DateTime.Now.AddMinutes(30));
 
                         return Created("", new
                         {

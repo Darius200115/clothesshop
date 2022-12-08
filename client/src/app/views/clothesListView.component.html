@@ -1,15 +1,20 @@
 ﻿<div class="row">
-    <div *ngFor="let p of shop.clothes" class="col-md-4">
-        <div class="clothes-items text-center">
-            <img src="{{p['pictureUrl']}}" class="img-fluid clothes-image"/>
-            <h4>{{p['brand']}} {{p['category']}}</h4>
-            <ul>
-                <li>{{p['description']}}</li>
-                <li>Size: {{p['size']}}</li> 
-                <li>Count: {{p['count']}}</li>
-            </ul>         
-            <button id="buyButton" class="btn btn-success text-center">{{p['price'] | currency}}</button>
-        </div>
+  <div *ngFor="let p of shop.clothes" class="col-md-4">
+    <div class="clothes-items text-center">
+      <img src="{{ p['pictureUrl'] }}" class="img-fluid clothes-image" />
+      <h4>{{ p["brand"] }} {{ p["category"] }}</h4>
+      <ul>
+        <li>{{ p["description"] }}</li>
+        <li>Size: {{ p["size"] }}</li>
+        <li>Count: {{ p["count"] }}</li>
+      </ul>
+      <button
+        id="buyButton"
+        class="btn btn-success text-center"
+        (click)="shop.addToOrder(p)"
+      >
+        {{ p["price"] | currency }}
+      </button>
     </div>
-    
+  </div>
 </div>

@@ -15,6 +15,8 @@ namespace test_proj_843823.ViewModels
         public string Brand { get; set; } = string.Empty;
         public string Category { get; set; }       
         public decimal Price { get; set; }      
-        public int Count { get; set; }     
+        public int Count { get; set; }
+        public string PictureUrl { get; set; }
+        public string Size { get; set; }
     }
 }

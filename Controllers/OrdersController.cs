@@ -9,7 +9,7 @@ using test_proj_843823.ViewModels;
 namespace test_proj_843823.Controllers
 {
     [Route("api/[Controller]")]
-    //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class OrdersController : ControllerBase
     {
         private readonly IClothesRepository _clothesRepository;

@@ -5,7 +5,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using System.Reflection;
 using test_proj_843823.Data.Entities;
-
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
@@ -23,15 +23,23 @@ builder.Services.AddIdentity<ShopUser , IdentityRole>(cfg =>
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IClothesRepository, ClothesRepository>();
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
-builder.Services.AddAuthentication().AddCookie().AddJwtBearer(
-//    cfg =>
-//{
-//    cfg.TokenValidationParameters = new TokenValidationParameters()
-//    {
-//        ValidateIssuer = builder.Configuration["Token:Issuer"]
-//    }
-//}
-);
+builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages();
+builder.Services.AddAuthentication()
+    .AddCookie()
+    .AddJwtBearer(cfg =>
+        {
+            cfg.TokenValidationParameters = new TokenValidationParameters()
+            {
+                ValidIssuer = builder.Configuration["Tokens:Issuer"],
+                ValidAudience = builder.Configuration["Tokens:Audience"],
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Tokens:Key"])),
+                ValidateIssuer = true,
+                ValidateAudience = true,
+                ValidateLifetime = false,
+                ValidateIssuerSigningKey = true
+            };
+        });
 
 
 var app = builder.Build();
@@ -50,12 +58,18 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseStaticFiles();
+app.UseRouting();
 
 app.UseAuthentication();
 
 app.UseAuthorization();
 
-app.MapControllers();
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllerRoute("Fallback", "{controller}/{action}/{id?}", new { controller = "App", action = "Index" });
+    endpoints.MapRazorPages();
+});
 
 app.Run();
 
