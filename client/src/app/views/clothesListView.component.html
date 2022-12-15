@@ -1,5 +1,10 @@
-﻿<div class="row">
-  <div *ngFor="let p of shop.clothes" class="col-md-4">
+﻿<div class="row clothes-block">
+  <div
+    *ngFor="
+      let p of shop.clothes | paginate : { itemsPerPage: 6, currentPage: page }
+    "
+    class="col-md-4"
+  >
     <div class="clothes-items text-center">
       <img src="{{ p['pictureUrl'] }}" class="img-fluid clothes-image" />
       <h4>{{ p["brand"] }} {{ p["category"] }}</h4>
@@ -8,13 +13,22 @@
         <li>Size: {{ p["size"] }}</li>
         <li>Count: {{ p["count"] }}</li>
       </ul>
-      <button
-        id="buyButton"
-        class="btn btn-success text-center"
-        (click)="shop.addToOrder(p)"
-      >
-        {{ p["price"] | currency }}
-      </button>
+      <div class="buy-btn">
+        <button
+          id="buyButton"
+          class="btn btn-success"
+          (click)="shop.addToOrder(p)"
+        >
+          {{ p["price"] | currency }}
+        </button>
+      </div>
     </div>
   </div>
 </div>
+<br />
+<div class="page-controls row">
+  <div class="col-9">
+    <pagination-controls (pageChange)="page = $event"></pagination-controls>
+  </div>
+</div>
+<br />

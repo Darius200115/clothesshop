@@ -12,6 +12,9 @@ import router from "./router";
 import { LoginPage } from "./pages/loginPage.component";
 import { AuthActivator } from "./services/authActivator.service";
 import { FormsModule } from "@angular/forms";
+import { AddClothes } from "./pages/addClothes.component";
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
+import { NgxPaginationModule } from "ngx-pagination";
 
 @NgModule({
   declarations: [
@@ -21,8 +24,16 @@ import { FormsModule } from "@angular/forms";
     ShopPage,
     CheckoutPage,
     LoginPage,
+    AddClothes,
   ],
-  imports: [BrowserModule, HttpClientModule, router, FormsModule],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    router,
+    FormsModule,
+    FontAwesomeModule,
+    NgxPaginationModule
+  ],
   providers: [Shop, AuthActivator],
   bootstrap: [AppComponent],
 })

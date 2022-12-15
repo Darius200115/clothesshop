@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using test_proj_843823.Data;
 using test_proj_843823.Data.Entities;
@@ -15,11 +16,13 @@ namespace test_proj_843823.Controllers
         private readonly IClothesRepository _clothesRepository;
         private readonly ILogger<OrdersController> _logger;
         private readonly IMapper _mapper;
-        public OrdersController(ILogger<OrdersController> logger, IClothesRepository repository, IMapper mapper)
+        private readonly UserManager<ShopUser> _userManager;
+        public OrdersController(ILogger<OrdersController> logger, IClothesRepository repository, IMapper mapper, UserManager<ShopUser> userManager )
         {
             _clothesRepository = repository;
             _logger = logger;
             _mapper = mapper;
+            _userManager = userManager;
         }
 
         [HttpGet]
@@ -57,7 +60,7 @@ namespace test_proj_843823.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody]OrderViewModel model)
+        public async Task<IActionResult> Post([FromBody]OrderViewModel model)
         {
             try
             {
@@ -69,6 +72,9 @@ namespace test_proj_843823.Controllers
                     {
                         newOrder.OrderDate = DateTime.Now;
                     }
+
+                    var currentUser = await _userManager.FindByNameAsync(User.Identity.Name);
+                    newOrder.User = currentUser;
 
                     _clothesRepository.AddEntity(newOrder);
                     if (_clothesRepository.SaveAll())

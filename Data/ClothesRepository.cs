@@ -17,7 +17,7 @@ namespace test_proj_843823.Data
         public IEnumerable<Clothes> GetAllClothes()
         {
             return _ctx.Clothes
-                .OrderBy(p => p.Brand)
+                .OrderBy(p => p.ClothesId)
                 .ToList();
         }
 

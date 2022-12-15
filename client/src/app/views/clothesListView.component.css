@@ -1,11 +1,28 @@
-﻿.clothes-image{
-    border:1px #bbbbbb solid;
-    box-shadow: rgb(219, 25, 25);
-    margin: auto;
+﻿.clothes-image {
+  border: 1px #bbbbbb solid;
+  box-shadow: rgb(219, 25, 25);
+  margin: auto;
+  height: 240px;
+  width: 255px;
 }
 .clothes-items {
-    
-    border:1px #bcbcb6 solid;
-    margin: 4px 3px 4px 3px;
-    padding: 4px 3px 4px 3px;
+  width: 270px;
+  height: 450px;
+  border: 1px #bcbcb6 solid;
+  margin: 4px 3px 4px 3px;
+  padding: 4px 3px 4px 3px;
+}
+.clothes-block {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin-left: -15%;
+}
+.buy-btn {
+  position: absolute;
+  bottom: 10px;
+  text-align: center;
+}
+.page-controls {
+  text-align: center;
 }

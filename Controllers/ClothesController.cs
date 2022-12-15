@@ -1,7 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections;
 using test_proj_843823.Data;
 using test_proj_843823.Data.Entities;
+using test_proj_843823.ViewModels;
 
 namespace test_proj_843823.Controllers
 {
@@ -10,11 +13,13 @@ namespace test_proj_843823.Controllers
     {
         private readonly IClothesRepository _repos;
         private readonly ILogger<ClothesController> _logger;
+        private readonly IMapper _mapper;
 
-        public ClothesController(IClothesRepository repos, ILogger<ClothesController> logger)
+        public ClothesController(IClothesRepository repos, ILogger<ClothesController> logger, IMapper mapper)
         {
             _repos = repos;
             _logger = logger;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -45,6 +50,35 @@ namespace test_proj_843823.Controllers
                 _logger.LogError($"Failed to get clothes: {ex}");
                 return BadRequest("Failed to get clothes");
             }
+        }
+
+        [Authorize(Roles = "admin")]
+        public IActionResult Post([FromBody]ClothesViewModel model)            
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    var newClothes = _mapper.Map<ClothesViewModel, Clothes>(model);
+
+                    _repos.AddEntity(newClothes);
+                    if (_repos.SaveAll())
+                    {
+                        return Created($"/api/clothes/{newClothes.ClothesId}", _mapper.Map<Clothes, ClothesViewModel>(newClothes));
+                    }
+                }
+                else
+                {
+                    return BadRequest(ModelState);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Failed to post new product!");
+               
+            }
+            return BadRequest("Failed to post new product!");
         }
     }
 }

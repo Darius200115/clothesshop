@@ -1,0 +1,112 @@
+<div class="row">
+  <div class="col-md-9 col-md-offset-9">
+    <div *ngIf="errorMessage" class="alert alert-danger">
+      {{ errorMessage }}
+    </div>
+    <form (submit)="onAdd()">
+      <div class="form-group">
+        <label for="brand">Brand</label>
+        <input
+          type="text"
+          class="form-control"
+          name="brand"
+          #brand="ngModel"
+          [(ngModel)]="clothes.brand"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="category">Category</label>
+        <input
+          type="text"
+          class="form-control"
+          name="category"
+          #category="ngModel"
+          [(ngModel)]="clothes.category"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="size">Size</label>
+        <input
+          type="text"
+          class="form-control"
+          name="size"
+          #size="ngModel"
+          [(ngModel)]="clothes.size"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input
+          type="number"
+          class="form-control"
+          name="price"
+          #price="ngModel"
+          [(ngModel)]="clothes.price"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="countryManufacturer">Country Manufacturer</label>
+        <input
+          type="text"
+          class="form-control"
+          name="countryManufacturer"
+          #countryManufacturer="ngModel"
+          [(ngModel)]="clothes.countryManufacturer"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input
+          type="text"
+          class="form-control"
+          name="description"
+          #description="ngModel"
+          [(ngModel)]="clothes.description"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="pictureUrl">PictureUrl</label>
+        <input
+          type="text"
+          class="form-control"
+          name="pictureUrl"
+          #pictureUrl="ngModel"
+          [(ngModel)]="clothes.pictureUrl"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="Count">Count</label>
+        <input
+          type="number"
+          class="form-control"
+          name="count"
+          #count="ngModel"
+          [(ngModel)]="clothes.count"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="deliveryDate">Delivery Date</label>
+        <input
+          type="date"
+          class="form-control"
+          name="deliveryDate"
+          #deliveryDate="ngModel"
+          [(ngModel)]="clothes.deliveryDate"
+        />
+      </div>
+
+      <div class="form-group">
+        <input type="submit" class="btn btn-success" value="Add" />
+        <a href="#" class="btn btn-default">Cancel</a>
+      </div>
+    </form>
+  </div>
+</div>

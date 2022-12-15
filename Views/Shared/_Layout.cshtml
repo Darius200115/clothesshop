@@ -1,15 +1,18 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
   <title>VL Clothes Shop: @ViewBag.Title</title>
   <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="~/client/styles.css" rel="stylesheet" />
   @RenderSection("head",false)
 </head>
+
 <body>
   <div class="row">
     <header class="container-fluid">
       <nav class="navbar navbar-dark bg-dark navbar-expand-md">
-        <h1 class="navbar-brand"><i class="fas fa-paint-brush"></i> VL</h1>
+                <h1 class="navbar-brand"><i class="fa-solid fa-v"></i> <i class="fas fa-brands fa-shopify"></i> <i class="fa-solid fa-l"></i></h1>
         <button class="navbar-toggler" data-toggle="collapse" data-target="#theMenu">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -25,7 +28,7 @@
             }
             else
             {
-              <li class="nav-item"><a class="nav-link" asp-controller="Account" asp-action="Login">Login</a></li>
+              <li class="nav-item"><a class="nav-link" asp-controller="App" asp-action="Login">Login</a></li>
             }
           </ul>
         </div>
@@ -41,9 +44,10 @@
   </div>
   <script src="~/lib/jquery/dist/jquery.min.js"></script>
   <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="~/lib/fortawesome/fontawesome-free/js/fontawesome.js"></script>
-  <script src="~/lib/fortawesome/fontawesome-free/js/solid.js"></script>
-  <script src="~/js/index.js"></script>
+    <script src="~/lib/fortawesome/fontawesome-free/js/all.js"></script>
+    <script src="~/lib/fortawesome/fontawesome-free/js/all.min.js"></script>
+
   @RenderSection("scripts", false)
 </body>
-</html> 
+
+</html>
