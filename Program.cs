@@ -67,7 +67,7 @@ app.UseAuthorization();
 
 app.UseEndpoints(endpoints =>
 {
-    endpoints.MapControllerRoute("Fallback", "{controller}/{action}/{id?}", new { controller = "App", action = "Index" });
+    endpoints.MapControllerRoute("Fallback", "{controller}/{action}/{id?}", new { controller = "App", action = "Shop" });
     endpoints.MapRazorPages();
 });
 

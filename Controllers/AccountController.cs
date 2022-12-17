@@ -36,6 +36,50 @@ namespace test_proj_843823.Controllers
             _mapper = mapper;
         }
 
+        [HttpPost("registration")]
+        public async Task<IActionResult> Registration([FromBody] ShopUserViewModel user)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    var newUser = new ShopUser()
+                    {
+                        
+                        UserName = user.UserName,
+                        FirstName = user.FirstName,
+                        LastName = user.LastName,
+                        Password = user.Password,
+                        Email = user.Email
+                    };
+                    
+                    var result = await _userManager.CreateAsync(newUser, user.Password);
+
+                    if (result != IdentityResult.Success)
+                    {
+                        throw new InvalidOperationException("Could not create new user!");
+                    }
+
+                    return Created($"/api/account/{newUser.Id}", _mapper.Map<ShopUser, ShopUserViewModel>(newUser));
+                    
+
+                }
+                else
+                {
+                    return BadRequest(ModelState);
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                _logger.LogError(ex, "Failed to register new account!");
+            }
+            return BadRequest("Failed to register new account!");
+
+        }
+
+
         [HttpPost]
         public async Task<IActionResult> CreateToken([FromBody] ShopUserViewModel model)
         {

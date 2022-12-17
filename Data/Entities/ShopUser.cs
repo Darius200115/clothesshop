@@ -8,5 +8,7 @@ namespace test_proj_843823.Data.Entities
     {   
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string Password { get; set; }
+       
     }
 }

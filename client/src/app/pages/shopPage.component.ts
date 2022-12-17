@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { Shop } from "../services/shop.service";
 
 @Component({
   selector: "shopPage",
@@ -6,5 +7,6 @@ import { Component } from "@angular/core";
   styleUrls: ["shopPage.component.css"],
 })
 export class ShopPage {
+  constructor(public shop: Shop) {}
   title = "ShopPage";
 }

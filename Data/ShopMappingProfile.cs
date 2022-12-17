@@ -27,6 +27,10 @@ namespace test_proj_843823.Data
             CreateMap<Clothes, ClothesViewModel>()
                 .ForMember(c => c.ClothesId, p => p.MapFrom(c => c.ClothesId))
                 .ReverseMap();
+
+            CreateMap<ShopUser, ShopUserViewModel>()
+                .ForMember(u => u.Id, p => p.MapFrom(u => u.Id))
+                .ReverseMap();
             
 
 

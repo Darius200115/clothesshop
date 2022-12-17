@@ -9,7 +9,7 @@ import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 })
 export class CartView {
   constructor(public shop: Shop) {}
-  
-  page: number=1;
+
+  page: number = 1;
   faCartShopping = faCartShopping;
 }

@@ -52,7 +52,8 @@ namespace test_proj_843823.Controllers
             }
         }
 
-        [Authorize(Roles = "admin")]
+
+        [HttpPost]
         public IActionResult Post([FromBody]ClothesViewModel model)            
         {
             try

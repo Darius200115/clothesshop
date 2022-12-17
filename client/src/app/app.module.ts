@@ -32,7 +32,7 @@ import { NgxPaginationModule } from "ngx-pagination";
     router,
     FormsModule,
     FontAwesomeModule,
-    NgxPaginationModule
+    NgxPaginationModule,
   ],
   providers: [Shop, AuthActivator],
   bootstrap: [AppComponent],

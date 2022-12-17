@@ -9,7 +9,7 @@ import { Shop } from "../services/shop.service";
 export default class ClothesListView implements OnInit {
   constructor(public shop: Shop) {}
 
-  page: number=1;
+  page: number = 1;
 
   ngOnInit(): void {
     this.shop.loadClothes().subscribe(() => {

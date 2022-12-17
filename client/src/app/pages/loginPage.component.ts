@@ -6,6 +6,7 @@ import { LoginRequest } from "../shared/LoginResult";
 @Component({
   selector: "loginPage",
   templateUrl: "loginPage.component.html",
+  styleUrls:["loginPage.component.css"]
 })
 export class LoginPage {
   constructor(private shop: Shop, private router: Router) {}
